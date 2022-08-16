@@ -1,0 +1,51 @@
+
+create table balisage_art(
+   b_art_id 	   int(11)	 AUTO_INCREMENT primary key,
+   b_art_title	   varchar(200) NOT NULL,
+   b_art_author	varchar(200) not null,
+   b_art_link	   varchar(200) NOT NULL, 
+   b_art_volume	varchar(10),
+   b_art_year     INT(10),
+   b_art_topic	   varchar(50),
+   b_type         varchar(2) NOT NULL
+   b_table_id    int(11) not null 
+   FOREIGN KEY (b_table_id) REFERENCES table_sites(tab_id)
+   
+)ENGINE = MyISAM;
+
+------------------------------------------------
+create table DSH_art(
+   dsh_art_id 	   int(11)	 AUTO_INCREMENT primary key,
+   dsh_art_title	   varchar(200) NOT NULL,
+   dsh_art_author	   varchar(200) not null,
+   dsh_art_link	   varchar(200) NOT NULL, 
+   dsh_art_volume	   varchar(10),
+   dsh_art_year     INT(10) not null,
+   dsh_type         varchar(2) NOT NULL, 
+   dsh_table_id    int(11) not null, 
+   FOREIGN KEY (dsh_table_id) REFERENCES table_sites(tab_id)
+   
+)ENGINE = MyISAM;
+----------------------------------------------------------------------------
+create table jtei_art(
+   jtei_art_id 	   int(11) AUTO_INCREMENT primary key,
+   jtei_art_title	   varchar(200) NOT NULL,
+   jtei_art_author	varchar(100) NOT NULL,
+   jtei_art_link	   varchar(200) NOT NULL, 
+   jtei_art_year      INT(10) not null,
+   jtei_table_id    int(11) not null, 
+   FOREIGN KEY (jtei_table_id) REFERENCES table_sites(tab_id)
+   
+)ENGINE = MyISAM;
+
+--------------------------------------------
+create table google_scholar_art(
+   GS_art_id 	   int(11)	 AUTO_INCREMENT primary key,
+   GS_art_title	 varchar(100) NOT NULL,
+   GS_art_link	   varchar(200) NOT NULL, 
+   GS_art_year     INT(10) not null
+   GS_art_author  varchar(200) NOT NULL,
+   GS_table_id    int(11) not null, 
+   FOREIGN KEY (GS_table_id) REFERENCES table_sites(tab_id) 
+)ENGINE = MyISAM;
+
