@@ -1,0 +1,64 @@
+
+create table balisage_art(
+   art_id 	   int(11)	 AUTO_INCREMENT primary key,
+   art_title	   varchar(200) NOT NULL,
+   art_author	varchar(200) not null,
+   art_link	   varchar(200) NOT NULL, 
+   art_volume	varchar(10),
+   art_year     INT(10),
+   art_topic	   varchar(50),
+   b_type         varchar(2) NOT NULL
+   b_table_id    int(11) not null 
+   FOREIGN KEY (b_table_id) REFERENCES table_sites(tab_id)
+   
+)ENGINE = MyISAM;
+
+------------------------------------------------
+create table DSH_art(
+   art_id 	   int(11)	 AUTO_INCREMENT primary key,
+   art_title	   varchar(200) NOT NULL,
+   art_author	   varchar(200) not null,
+   art_link	   varchar(200) NOT NULL, 
+   art_volume	   varchar(10),
+   art_year     INT(10) not null,
+   dsh_type         varchar(2) NOT NULL, 
+   dsh_table_id    int(11) not null, 
+   FOREIGN KEY (dsh_table_id) REFERENCES table_sites(tab_id)
+   
+)ENGINE = MyISAM;
+----------------------------------------------------------------------------
+create table jtei_art(
+   art_id 	   int(11) AUTO_INCREMENT primary key,
+   art_title	   varchar(200) NOT NULL,
+   art_author	varchar(100) NOT NULL,
+   art_link	   varchar(200) NOT NULL, 
+   art_year      INT(10) not null,
+   jtei_table_id    int(11) not null, 
+   FOREIGN KEY (jtei_table_id) REFERENCES table_sites(tab_id)
+   
+)ENGINE = MyISAM;
+
+--------------------------------------------
+create table google_scholar_art(
+   art_id 	   int(11)	 AUTO_INCREMENT primary key,
+   art_title	 varchar(100) NOT NULL,
+   art_link	   varchar(200) NOT NULL, 
+   art_year     INT(10) not null
+   art_author  varchar(200) NOT NULL,
+   GS_table_id    int(11) not null, 
+   FOREIGN KEY (GS_table_id) REFERENCES table_sites(tab_id) 
+)ENGINE = MyISAM;
+
+-------------------------------------------------------------------
+create table articles(
+art_id int(11) primary key AUTO_INCREMENT,
+art_title varchar(255) not null,
+art_author varchar(255) not null,
+art_link varchar(255) not null,
+art_year int(10),
+art_topic varchar(255),
+art_volume varchar(255),
+art_type varchar(255),
+art_table_id varchar(255)
+FOREIGN KEY (art_table_id) REFERENCES table_sites(tab_id)
+) engine = INNODB
